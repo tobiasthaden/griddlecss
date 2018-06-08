@@ -1,0 +1,25 @@
+
+@import "breakpoint", "column", "gutter";
+
+// Create the grid.
+// @param  {Map} $breakpoints
+// @param  {Map} $columns
+@mixin core($breakpoints, $columns, $gutters) {
+    .columns {
+        display: flex;
+    }
+
+    .columns, .column { 
+        @include gutter($gutters);
+    }
+
+    @each $breakpoint, $value in $breakpoints {
+        @include columns($breakpoint, auto);
+        @include columns($breakpoint, flex);
+        @include columns($breakpoint, full);
+
+        @each $column in $columns {
+            @include columns($breakpoint, map-get($column, count), map-get($column, total));
+        }
+    }
+}

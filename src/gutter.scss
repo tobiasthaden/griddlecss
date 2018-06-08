@@ -1,0 +1,18 @@
+@import "breakpoint";
+
+// Create the gutter.
+// @param  {Integer} $gutter
+// @param  {Map} $gutters
+@mixin gutter($gutters) {
+
+    @each $breakpoint, $value in $gutters {
+
+        @if not map-has-key($breakpoints, $breakpoint) {
+            @warn "The breakpoint `#{$breakpoint}` is not defined in your `$breakpoints` map.";
+        }
+
+        @include break(map-get($breakpoints, $breakpoint)) {
+            padding: $value / 2;
+        }
+    }
+}

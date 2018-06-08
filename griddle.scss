@@ -1,0 +1,49 @@
+/**
+ * GriddleCSS
+ * A flexible responsive grid system based on flex box.
+ * Version 0.1.0
+ * https://github.com/tobiasthaden/griddlecss
+ * Licensed under MIT Open Source
+ */
+
+// Render the core grid classes
+$core: true !default;
+
+// Render helper classes
+$helpers: true !default;
+
+
+// Define the breakpoints
+$breakpoints: (
+    1: null,
+    2: 0481px,
+    3: 0721px,
+    4: 0981px,
+    5: 1025px,
+    6: 1281px,
+    7: 1441px,
+    8: 1921px,
+) !default;
+
+// Define the gutters for the breakpoints
+$gutters: (
+    1: 30px,
+    4: 40px,
+    6: 60px
+) !default;
+
+// Define the columns
+$columns: (
+    (count: 1, total: 2),
+    (count: 1, total: 3),
+    (count: 1, total: 4),
+    (count: 2, total: 3),
+    (count: 3, total: 4)
+) !default;
+
+// Import all the griddle components.
+@import "src/griddle";
+
+// Render the css 
+// example: .break-2-width-1/3
+@include run($breakpoints, $columns, $gutters);

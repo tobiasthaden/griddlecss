@@ -1,0 +1,29 @@
+{
+  "name": "griddlecss",
+  "version": "0.1.0",
+  "author": "Tobias Thaden <hello@tobiasthaden.com>",
+  "description": "A flexible responsive grid system.",
+  "main": "griddle.scss",
+  "license": "MIT",
+  "keywords": [
+    "grid",
+    "css",
+    "scss",
+    "sass",
+    "responsive"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tobiasthaden/griddlecss.git"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.6.0",
+    "node-sass": "^4.9.0",
+    "postcss-cli": "^5.0.0"
+  },
+  "scripts": {
+    "build": "npm run dev && postcss --config build -o dist/griddle.css dist/griddle.css",
+    "dev": "node-sass --output-style expanded griddle.scss dist/griddle.css",
+    "watch": "npm run dev -- --watch"
+  }
+}

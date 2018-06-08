@@ -1,0 +1,55 @@
+// Calculate the column width.
+// @param  {Integer} $count
+// @param  {Integer} $total
+// @return {String}
+@function width($count, $total: null) {
+    @if $total {
+        @return percentage($count / $total);   
+    }
+
+    @if($count == full) {
+        @return percentage(1);
+    }
+
+    @return auto;
+}
+
+// Create the column classes.
+// @param  {Integer} $breakpoint
+// @param  {Integer} $count
+// @param  {Integer} $total
+@mixin columns($breakpoint, $count, $total: null) {
+
+    $class: width;
+    $viewport: false;
+
+    @if map-has-key($breakpoints, $breakpoint) {
+        $viewport: map-get($breakpoints, $breakpoint);
+    }
+
+    @else {
+        @warn "The breakpoint `#{$breakpoint}` is not in the `$breakpoints` map."
+    }
+
+    @if $viewport {
+        $class: break-#{$breakpoint}-width;
+    }
+
+    @if $total {
+        .#{$class}-#{$count}\/#{$total} {
+            @include break($viewport) { width: width($count, $total) };
+        }
+    }
+
+    @else {
+        .#{$class}-#{$count} {
+            @if($count == flex) {
+                @include break($viewport) { flex: 1 };
+            }
+
+            @else {
+                @include break($viewport) { width: width($count) };
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+// Create media query.
+// @param  {String} $value
+// @param  {String} $rule: min-width
+@mixin break($value, $rule: min-width) {
+    @if $value {
+        @media screen and (#{$rule}: $value) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
