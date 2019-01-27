@@ -19,11 +19,14 @@
   "devDependencies": {
     "autoprefixer": "^8.6.0",
     "node-sass": "^4.9.0",
-    "postcss-cli": "^5.0.0"
+    "postcss-cli": "^5.0.0",
+    "vuepress": "^0.14.8"
   },
   "scripts": {
     "build": "npm run dev && postcss --config build -o dist/griddle.css dist/griddle.css",
     "dev": "node-sass --output-style expanded griddle.scss dist/griddle.css",
-    "watch": "npm run dev -- --watch"
+    "watch": "npm run dev -- --watch",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   }
 }
