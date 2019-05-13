@@ -13,6 +13,10 @@
         @include gutter($gutters);
     }
 
+    .columns .columns {
+        @include rebase($gutters);
+    }
+
     @each $breakpoint, $value in $breakpoints {
         @include columns($breakpoint, auto);
         @include columns($breakpoint, flex);

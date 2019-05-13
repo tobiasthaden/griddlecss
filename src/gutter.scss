@@ -12,7 +12,26 @@
         }
 
         @include break(map-get($breakpoints, $breakpoint)) {
-            padding: $value / 2;
+            padding-left: $value / 2;
+            padding-right: $value / 2;
+        }
+    }
+}
+
+// Create the gutter.
+// @param  {Integer} $gutter
+// @param  {Map} $gutters
+@mixin rebase($gutters) {
+
+    @each $breakpoint, $value in $gutters {
+
+        @if not map-has-key($breakpoints, $breakpoint) {
+            @warn "The breakpoint `#{$breakpoint}` is not defined in your `$breakpoints` map.";
+        }
+
+        @include break(map-get($breakpoints, $breakpoint)) {
+            margin-left: -$value / 2;
+            margin-right: -$value / 2;
         }
     }
 }
