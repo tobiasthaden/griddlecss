@@ -30,8 +30,8 @@
         }
 
         @include break(map-get($breakpoints, $breakpoint)) {
-            margin-left: -$value / 2;
-            margin-right: -$value / 2;
+            margin-left: -$value;
+            margin-right: -$value;
         }
     }
 }
