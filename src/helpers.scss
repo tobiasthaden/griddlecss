@@ -27,18 +27,47 @@
         $class: break-#{$breakpoint}-;
     }
 
-    .#{$class}center {
-        @include break($viewport) { 
-            align-items: center;
-            justify-content: center;
-        };
+    .#{$class}text-left {
+        @include break($viewport) { text-align: left };
     }
 
-    .#{$class}space-between {
+    .#{$class}text-center {
+        @include break($viewport) { text-align: center };
+    }
+
+    .#{$class}text-right {
+        @include break($viewport) { text-align: right };
+    }
+
+    .#{$class}items-start {
+        @include break($viewport) { align-items: flex-start };
+    }
+
+    .#{$class}items-center {
+        @include break($viewport) { align-items: center };
+    }
+
+    .#{$class}items-end {
+        @include break($viewport) { align-items: flex-end };
+    }
+
+    .#{$class}justify-start {
+        @include break($viewport) { justify-content: flex-start };
+    }
+
+    .#{$class}justify-center {
+        @include break($viewport) { justify-content: center };
+    }
+
+    .#{$class}justify-end {
+        @include break($viewport) { justify-content: flex-end };
+    }
+
+    .#{$class}justify-between {
         @include break($viewport) { justify-content: space-between };
     }
 
-    .#{$class}space-around {
+    .#{$class}justify-around {
         @include break($viewport) { justify-content: space-around };
     }
 }

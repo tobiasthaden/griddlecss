@@ -1,6 +1,6 @@
 {
   "name": "griddlecss",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Tobias Thaden <hello@tobiasthaden.com>",
   "description": "A flexible responsive grid system.",
   "main": "griddle.scss",
