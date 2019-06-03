@@ -1,0 +1,64 @@
+// Render alignment helpers.
+// @param  {Integer} $breakpoint
+@mixin align($breakpoint) {
+
+    $class: '';
+    
+    $viewport: false;
+
+    @if map-has-key($breakpoints, $breakpoint) {
+        $viewport: map-get($breakpoints, $breakpoint);
+    }
+
+    @else {
+        @warn "The breakpoint `#{$breakpoint}` is not in the `$breakpoints` map."
+    }
+
+    @if $viewport {
+        $class: break-#{$breakpoint}-;
+    }
+
+    .#{$class}text-left {
+        @include break($viewport) { text-align: left };
+    }
+
+    .#{$class}text-center {
+        @include break($viewport) { text-align: center };
+    }
+
+    .#{$class}text-right {
+        @include break($viewport) { text-align: right };
+    }
+
+    .#{$class}items-start {
+        @include break($viewport) { align-items: flex-start };
+    }
+
+    .#{$class}items-center {
+        @include break($viewport) { align-items: center };
+    }
+
+    .#{$class}items-end {
+        @include break($viewport) { align-items: flex-end };
+    }
+
+    .#{$class}justify-start {
+        @include break($viewport) { justify-content: flex-start };
+    }
+
+    .#{$class}justify-center {
+        @include break($viewport) { justify-content: center };
+    }
+
+    .#{$class}justify-end {
+        @include break($viewport) { justify-content: flex-end };
+    }
+
+    .#{$class}justify-between {
+        @include break($viewport) { justify-content: space-between };
+    }
+
+    .#{$class}justify-around {
+        @include break($viewport) { justify-content: space-around };
+    }
+}

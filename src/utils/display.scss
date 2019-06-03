@@ -1,0 +1,40 @@
+// Render display helpers.
+// @param  {Integer} $breakpoint
+@mixin display($breakpoint) {
+
+    $class: '';
+    
+    $viewport: false;
+
+    @if map-has-key($breakpoints, $breakpoint) {
+        $viewport: map-get($breakpoints, $breakpoint);
+    }
+
+    @else {
+        @warn "The breakpoint `#{$breakpoint}` is not in the `$breakpoints` map."
+    }
+
+    @if $viewport {
+        $class: break-#{$breakpoint}-;
+    }
+
+    .#{$class}display-block {
+        @include break($viewport) { display: block };
+    }
+
+    .#{$class}display-inline {
+        @include break($viewport) { display: inline };
+    }
+
+    .#{$class}display-inline-block {
+        @include break($viewport) { display: inline-block };
+    }
+
+    .#{$class}display-flex {
+        @include break($viewport) { display: flex };
+    }
+
+    .#{$class}display-none {
+        @include break($viewport) { display: none };
+    }
+}
